@@ -13,5 +13,13 @@ function login() {
     }
     console.log(req)
 
+    fetch("/login", {
+        method: "POST",
+        headers: {
+            "Contend-Type" : "application/json",
+        },
+        body: JSON.stringify(req) //json 으로 감싼 req
+    })
+
 }
 

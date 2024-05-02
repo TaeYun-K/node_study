@@ -1,14 +1,46 @@
 "use strict";
 
-const hello = (req,res) => {
-    res.render("home/index")
+const users = {
+    id : ['kty8600'],
+    psword : ['1234'],
 }
 
-const login = (req,res) => {
-    res.render("home/login")
+const output = {
+
+    home : (req,res) => {
+        res.render("home/index")
+    },
+    
+    login : (req,res) => {
+        res.render("home/login")
+    },
+
 }
+
+const process = {
+    login : (req,res) => {
+        const id = req.body.id,
+            psword = req.body.psword
+
+        if (users.id.includes(id)) {
+            const idx = users.id.indexOf(id)
+            if (users.psword[idx] === psword) {
+                return res.json({
+                    success : true,
+                })
+            }
+        }
+        return res.json({
+            success: false,
+            msg: "로그인에 실패하셨습니다."
+        })
+
+    }
+
+}
+
 
 module.exports = {
-    hello, // hello : hello 로 key와 같은 값을 자동으로 넣어줌
-    login,
+    output,
+    process,
 }

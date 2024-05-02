@@ -11,15 +11,16 @@ function login() {
         id: id.value,
         psword: psword.value
     }
-    console.log(req)
+    // console.log(req)
 
     fetch("/login", {
         method: "POST",
         headers: {
-            "Contend-Type" : "application/json",
+            "Content-Type" : "application/json",
         },
-        body: JSON.stringify(req) //json 으로 감싼 req
+        body: JSON.stringify(req), //json 으로 감싼 req
     })
+    .then((res) => res.json())
+    .then(console.log)
 
 }
-

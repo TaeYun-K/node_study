@@ -1,7 +1,7 @@
 "use strict";
 
 const User = require("../../models/User");
-const UserStorage = require("../../models/UserStorage")
+
 
 
 
@@ -14,6 +14,10 @@ const output = {
     login : (req,res) => {
         res.render("home/login")
     },
+
+    register : (req,res) => {
+        res.render("home/register")
+    }
 
 }
 

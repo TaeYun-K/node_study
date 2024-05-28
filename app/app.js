@@ -2,9 +2,9 @@
 //모듈
 var express = require('express')
 var cors = require('cors')
-const bodyParser = require("body-parser")
 var app = express()
 const PORT = 3000;
+const bodyParser = require("body-parser")
 
 app.use(cors())
 
